@@ -33,11 +33,11 @@ try:
 		print 'HTTP request received:'
 		print recvSocket.recv(1024)
 		y = random.randint(10, 900000)
-		recvSocket.send("HTTP/1.1 302 Found \r\n\r\n" +
+		recvSocket.send("HTTP/1.1 200 OK\r\n\r\n" +
 		                "<html><head><meta http-equiv='refresh' content='2; " +
                 		"url=http://localhost:1234/" + str(y) +
-						"'></head>"+ "<body> Redirigido a: " +str(y) +
-						"</body></html>\r\n")
+				"'></head>"+ "<body> Redirigido a: " +str(y) +
+				"</body></html>\r\n")
 		recvSocket.close()
 except KeyboardInterrupt:
 	print "Closing binded socket"
